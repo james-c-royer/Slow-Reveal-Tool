@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Slow Reveal Graph</title>
+  <script src="gallery-slideshow.js" defer></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 40px;
+    }
+
+    .main-container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    #manualControls {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-width: 150px;
+    }
+
+    #slideshow-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #slideshow {
+      width: 500px;
+      height: 500px;
+      border: 1px solid #ccc;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+
+    #slideshow img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: opacity 2s ease-in-out;
+    }
+
+    #slideshow img.active {
+      opacity: 1;
+    }
+
+    .slideshow-controls {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: center;
+      margin-top: 10px;
+    }
+
+    button {
+      padding: 6px 14px;
+      font-size: 14px;
+    }
+
+    input[type=number] {
+      width: 60px;
+      text-align: center;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Slow Reveal Graph</h1>
+
+  <div class="main-container">
+    <!-- Manual Controls Left of Image -->
+    <div id="manualControls"></div>
+
+    <!-- Slideshow Image -->
+    <div id="slideshow-container">
+      <div id="slideshow"></div>
+
+      <!-- Slideshow Controls Below Image -->
+      <div class="slideshow-controls">
+        <button id="startBtn">Start Slideshow</button>
+        <label for="pauseTime">Pause (s): </label>
+        <input type="number" id="pauseTime" min="1" value="3">
+        <button id="pauseBtn" disabled>Pause</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
