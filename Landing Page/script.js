@@ -6,20 +6,25 @@ document.addEventListener("DOMContentLoaded", () => {
   let num = 0;
 
   generateBtn.addEventListener("click", () => {
+    /* Parses input number into a base 10 int. Apperently, older JS enviornments might intepret strings with 0 in the front as octal numbers*/
     num = parseInt(numInputsField.value, 10);
 
+    /*Clears fileInputs div */
     fileInputsContainer.innerHTML = "";
 
+    /*Error checking for too many files or <1 file*/
     if (isNaN(num) || num <= 0) {
       alert("Please enter a valid positive number.");
       return;
     }
-    else if (num > 10 ){
+    else if (num > 10) {
       alert("Please select fewer than 10 images.")
       return;
     }
 
+
     for (let i = 1; i <= num; i++) {
+      /* Creates input fields that accept images */
       const input = document.createElement("input");
       input.type = "file";
       input.accept = "image/*";
@@ -31,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       fileInputsContainer.appendChild(label);
       fileInputsContainer.appendChild(input);
-      fileInputsContainer.appendChild(document.createElement("br"));
+      fileInputsContainer.appendChild(document.createElement("br/"));
     }
 
     // Add a submit button to store images and go directly to gallery
@@ -43,9 +48,9 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   function saveImagesAndRedirect() {
-    const inputs = fileInputsContainer.querySelectorAll("input[type=file]");
+    /* Select all images of input type file */
+    const inputs = fileInputsContainer.querySelectorAll("input[type=file");
     const images = [];
-
     let filesRead = 0;
 
     inputs.forEach((input, index) => {
