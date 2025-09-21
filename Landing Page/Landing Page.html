@@ -6,19 +6,21 @@
   <script src="script.js" defer></script>
   <style>
     body { font-family: Arial, sans-serif; padding: 20px; }
-    .file-inputs { margin-top: 15px; }
-    .file-inputs input { display: block; margin-bottom: 10px; }
+    .file-inputs { margin-top: 15px;     display: flex; }
+    .file-inputs input { display: block; margin-bottom: 10px; margin-top: 10px;}
     .gallery-link { margin-top: 20px; display: none; }
+    .generate-html {display: flex; align-items: center; justify-content: center;}
   </style>
 </head>
 
 <body>
-  <h1>Upload Images</h1>
+  <h1 class="generate-html">Upload Images</h1>
   <label for="numInputs">Enter number of images to upload: </label>
   <input type="number" id="numInputs" min="1" placeholder="1-10">
   <button id="generateBtn">Generate</button>
 
   <div class="file-inputs" id="fileInputs" ></div>
+  <div class="generate-html" id="generateHTML" ></div>
 
   <div class="gallery-link" id="galleryLink">
     <a href="gallery-slideshow/index.html" target="_blank">Go to Gallery</a>
