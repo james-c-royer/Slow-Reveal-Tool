@@ -372,9 +372,21 @@ document.addEventListener("DOMContentLoaded", () => {
     const blob = new Blob([htmlContent], { type: "html" });
       const url = URL.createObjectURL(blob);
 
+      let fileName = prompt("Enter a name for your file: ");
+
+      while(!fileName){
+        fileName = prompt("Error: you did not provide a name for your slow reveal file. What would you like to name it? ")
+      }
+
+      // Reg expression to remove the special chars not supported in files
+      fileName = fileName.replace(/[.\/\\:*?"<>|]/g, "");
+
+      // make it an html file
+      fileName += ".html";
+
       const a = document.createElement("a");
       a.href = url;
-      a.download = "index.html"; // filename
+      a.download = fileName; // filename
       a.click();
 
       URL.revokeObjectURL(url);
