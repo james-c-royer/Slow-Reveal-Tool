@@ -313,7 +313,6 @@ document.addEventListener("DOMContentLoaded", () => {
     #slideshow {
       width: 100%;
       height: 600px;
-      border: 1px solid #ccc;
       position: relative;
       overflow: hidden;
       margin-bottom: 20px;
